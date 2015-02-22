@@ -1,0 +1,369 @@
+KEY:    7ff238a445390d4e723e
+Data:   2adf4956adf5ef6e
+
+Result: fc33c4eb8a985a44
+
+
+
+*** PRESENT Key Schedule ******************************
+*** (c) 2008 by Timm Korte, cryptool@easycrypt.de******
+
+Input Key:  7ff238a445390d4e 723e
+Subkey Round 1: >>7ff238a445390d4e<<
+
+...after Shift: ce47cffe471488a7 21a9
+...after S-Box: 4e47cffe471488a7 21a9
+Subkey Round 2 (after Salt): >>4e47cffe471488a7<< a1a9
+
+...after Shift: f43529c8f9ffc8e2 9114
+...after S-Box: 243529c8f9ffc8e2 9114
+Subkey Round 3 (after Salt): >>243529c8f9ffc8e3<< 9114
+
+...after Shift: 72228486a5391f3f f91c
+...after S-Box: d2228486a5391f3f f91c
+Subkey Round 4 (after Salt): >>d2228486a5391f3e<< 791c
+
+...after Shift: cf239a445090d4a7 23e7
+...after S-Box: 4f239a445090d4a7 23e7
+Subkey Round 5 (after Salt): >>4f239a445090d4a5<< 23e7
+
+...after Shift: a47ce9e473488a12 1a94
+...after S-Box: f47ce9e473488a12 1a94
+Subkey Round 6 (after Salt): >>f47ce9e473488a10<< 9a94
+
+...after Shift: 13529e8f9d3c8e69 1142
+...after S-Box: 53529e8f9d3c8e69 1142
+Subkey Round 7 (after Salt): >>53529e8f9d3c8e6a<< 1142
+
+...after Shift: 42284a6a53d1f3a7 91cd
+...after S-Box: 92284a6a53d1f3a7 91cd
+Subkey Round 8 (after Salt): >>92284a6a53d1f3a4<< 11cd
+
+...after Shift: 8239b245094d4a7a 3e74
+...after S-Box: 3239b245094d4a7a 3e74
+Subkey Round 9 (after Salt): >>3239b245094d4a7e<< 3e74
+
+...after Shift: c7ce86473648a129 a94f
+...after S-Box: 47ce86473648a129 a94f
+Subkey Round 10 (after Salt): >>47ce86473648a12d<< 294f
+
+...after Shift: a529e8f9d0c8e6c9 1425
+...after S-Box: f529e8f9d0c8e6c9 1425
+Subkey Round 11 (after Salt): >>f529e8f9d0c8e6cc<< 1425
+
+...after Shift: 8284bea53d1f3a19 1cd9
+...after S-Box: 3284bea53d1f3a19 1cd9
+Subkey Round 12 (after Salt): >>3284bea53d1f3a1c<< 9cd9
+
+...after Shift: 939b265097d4a7a3 e743
+...after S-Box: e39b265097d4a7a3 e743
+Subkey Round 13 (after Salt): >>e39b265097d4a7a5<< e743
+
+...after Shift: bce87c7364ca12fa 94f4
+...after S-Box: 8ce87c7364ca12fa 94f4
+Subkey Round 14 (after Salt): >>8ce87c7364ca12fc<< 14f4
+
+...after Shift: 829e919d0f8e6c99 425f
+...after S-Box: 329e919d0f8e6c99 425f
+Subkey Round 15 (after Salt): >>329e919d0f8e6c9e<< 425f
+
+...after Shift: c84be653d233a1f1 cd93
+...after S-Box: 484be653d233a1f1 cd93
+Subkey Round 16 (after Salt): >>484be653d233a1f6<< 4d93
+
+...after Shift: c9b269097cca7a46 743e
+...after S-Box: 49b269097cca7a46 743e
+Subkey Round 17 (after Salt): >>49b269097cca7a4e<< 743e
+
+...after Shift: ce87c9364d212f99 4f49
+...after S-Box: 4e87c9364d212f99 4f49
+Subkey Round 18 (after Salt): >>4e87c9364d212f91<< cf49
+
+...after Shift: 39e929d0f926c9a4 25f2
+...after S-Box: b9e929d0f926c9a4 25f2
+Subkey Round 19 (after Salt): >>b9e929d0f926c9ad<< 25f2
+
+...after Shift: a4be573d253a1f24 d935
+...after S-Box: f4be573d253a1f24 d935
+Subkey Round 20 (after Salt): >>f4be573d253a1f2d<< 5935
+
+...after Shift: ab26be97cae7a4a7 43e5
+...after S-Box: fb26be97cae7a4a7 43e5
+Subkey Round 21 (after Salt): >>fb26be97cae7a4ad<< 43e5
+
+...after Shift: a87cbf64d7d2f95c f495
+...after S-Box: f87cbf64d7d2f95c f495
+Subkey Round 22 (after Salt): >>f87cbf64d7d2f956<< 7495
+
+...after Shift: ce92bf0f97ec9afa 5f2a
+...after S-Box: 4e92bf0f97ec9afa 5f2a
+Subkey Round 23 (after Salt): >>4e92bf0f97ec9af1<< 5f2a
+
+...after Shift: 2be549d257e1f2fd 935e
+...after S-Box: 6be549d257e1f2fd 935e
+Subkey Round 24 (after Salt): >>6be549d257e1f2f6<< 135e
+
+...after Shift: c26bcd7ca93a4afc 3e5e
+...after S-Box: 426bcd7ca93a4afc 3e5e
+Subkey Round 25 (after Salt): >>426bcd7ca93a4af0<< 3e5e
+
+...after Shift: 07cbc84d79af9527 495e
+...after S-Box: c7cbc84d79af9527 495e
+Subkey Round 26 (after Salt): >>c7cbc84d79af952b<< c95e
+
+...after Shift: 792bd8f97909af35 f2a5
+...after S-Box: d92bd8f97909af35 f2a5
+Subkey Round 27 (after Salt): >>d92bd8f97909af38<< f2a5
+
+...after Shift: 1e54bb257b1f2f21 35e7
+...after S-Box: 5e54bb257b1f2f21 35e7
+Subkey Round 28 (after Salt): >>5e54bb257b1f2f2c<< b5e7
+
+...after Shift: 96bcebca9764af63 e5e5
+...after S-Box: e6bcebca9764af63 e5e5
+Subkey Round 29 (after Salt): >>e6bcebca9764af6d<< e5e5
+
+...after Shift: bcbcbcd79d7952ec 95ed
+...after S-Box: 8cbcbcd79d7952ec 95ed
+Subkey Round 30 (after Salt): >>8cbcbcd79d7952e2<< 15ed
+
+...after Shift: 42bdb197979af3af 2a5c
+...after S-Box: 92bdb197979af3af 2a5c
+Subkey Round 31 (after Salt): >>92bdb197979af3a0<< 2a5c
+
+...after Shift: 054b9257b632f2f3 5e74
+...after S-Box: c54b9257b632f2f3 5e74
+Subkey Round 32 (after Salt): >>c54b9257b632f2fc<< de74
+
+*** PRESENT Encryption ********************************
+
+Input Key:  7ff238a445390d4e 723e
+Input Data: 2adf4956adf5ef6e
+
+Round 1
+  Subkey: >>7ff238a445390d4e<<
+Text after...
+...Key XOR: 552d71f2e8cce220
+...  S-Box: 0067d5261344166c
+...P-Layer: 08013d3733461cc8
+
+Round 2
+  Subkey: >>4e47cffe471488a7<<
+Text after...
+...Key XOR: 4646f2c97452946f
+...  S-Box: 9a9a264ed906e9a2
+...P-Layer: f1ce07985d1ba0c4
+
+Round 3
+  Subkey: >>243529c8f9ffc8e3<<
+Text after...
+...Key XOR: d5fb2e50a4e46827
+...  S-Box: 7028610cf919a36d
+...P-Layer: 11d98983a88e84f5
+
+Round 4
+  Subkey: >>d2228486a5391f3e<<
+Text after...
+...Key XOR: c3fb0d050db79bcb
+...  S-Box: 4b28c7c0c78de848
+...P-Layer: 5abd8eda64484450
+
+Round 5
+  Subkey: >>4f239a445090d4a5<<
+Text after...
+...Key XOR: 159e149e34d890f5
+...  S-Box: 50e159e1b973ec20
+...P-Layer: 26ccaa2c22ba9df0
+
+Round 6
+  Subkey: >>f47ce9e473488a10<<
+Text after...
+...Key XOR: d2b043c851f217e0
+...  S-Box: 768c9b4305265d1c
+...P-Layer: 3c05d25dc5308d4e
+
+Round 7
+  Subkey: >>53529e8f9d3c8e6a<<
+Text after...
+...Key XOR: 6f574cd2580c0324
+...  S-Box: a20d947603c4cb69
+...P-Layer: 982d173ac3461a45
+
+Round 8
+  Subkey: >>92284a6a53d1f3a4<<
+Text after...
+...Key XOR: 0a055d509097e9e1
+...  S-Box: cfc0070ceced1e15
+...P-Layer: e1f4e5f544a4441b
+
+Round 9
+  Subkey: >>3239b245094d4a7e<<
+Text after...
+...Key XOR: d3cd57b04de90e65
+...  S-Box: 7b470d8c971ec1a0
+...P-Layer: 479ab558d052d4e4
+
+Round 10
+  Subkey: >>47ce86473648a12d<<
+Text after...
+...Key XOR: 0054331fe61a75c9
+...  S-Box: cc09bb521a5fd04e
+...P-Layer: dc59c23b0d511eb8
+
+Round 11
+  Subkey: >>f529e8f9d0c8e6cc<<
+Text after...
+...Key XOR: 29702ac2dd99f874
+...  S-Box: 6edc6f4677ee23d9
+...P-Layer: 7433fff2cdfc24c7
+
+Round 12
+  Subkey: >>3284bea53d1f3a1c<<
+Text after...
+...Key XOR: 46b74157f0e31edb
+...  S-Box: 9a8d950d2c1b5178
+...P-Layer: f951154a40929d3e
+
+Round 13
+  Subkey: >>e39b265097d4a7a5<<
+Text after...
+...Key XOR: 1aca331ad7463a9b
+...  S-Box: 5f4fbb5f7d9abfe8
+...P-Layer: 5d7ff3c65d9edfec
+
+Round 14
+  Subkey: >>8ce87c7364ca12fc<<
+Text after...
+...Key XOR: d1978fb53954cd10
+...  S-Box: 75ed3280be09475c
+...P-Layer: 32d1f04facc4d896
+
+Round 15
+  Subkey: >>329e919d0f8e6c9e<<
+Text after...
+...Key XOR: 004f61d2a34ab408
+...  S-Box: cc92a576fb9f89c3
+...P-Layer: e8fec7921bd126f5
+
+Round 16
+  Subkey: >>484be653d233a1f6<<
+Text after...
+...Key XOR: a0b521c1c9e28703
+...  S-Box: fc8065454e163dcb
+...P-Layer: e047cfd68859852d
+
+Round 17
+  Subkey: >>49b269097cca7a4e<<
+Text after...
+...Key XOR: a9f5a6dff493ff63
+...  S-Box: fe20fa7229eb22ab
+...P-Layer: cc73ca20efbf8a51
+
+Round 18
+  Subkey: >>4e87c9364d212f91<<
+Text after...
+...Key XOR: 82f40316a29ea5c0
+...  S-Box: 3629cb5af6e1f04c
+...P-Layer: 1da94aebe5e89698
+
+Round 19
+  Subkey: >>b9e929d0f926c9ad<<
+Text after...
+...Key XOR: a440633b1cce5f35
+...  S-Box: f99cabb8544102b0
+...P-Layer: ff0290e08e06e692
+
+Round 20
+  Subkey: >>f4be573d253a1f2d<<
+Text after...
+...Key XOR: 0bbcc7ddab3cf9bf
+...  S-Box: c8844d77f8b42e82
+...P-Layer: e4e69f9403ad07a0
+
+Round 21
+  Subkey: >>fb26be97cae7a4ad<<
+Text after...
+...Key XOR: 1fc02103c94aa30d
+...  S-Box: 524c65cb4e9ffbc7
+...P-Layer: 137ebedb495d853d
+
+Round 22
+  Subkey: >>f87cbf64d7d2f956<<
+Text after...
+...Key XOR: eb0201bf9e8f7c6b
+...  S-Box: 18c6c582e132d4a8
+...P-Layer: 6a8b3c8c11b28468
+
+Round 23
+  Subkey: >>4e92bf0f97ec9af1<<
+Text after...
+...Key XOR: 24198383865e1e99
+...  S-Box: 695e3b3b3a0151ee
+...P-Layer: 5543b00b9fc36f9c
+
+Round 24
+  Subkey: >>6be549d257e1f2f6<<
+Text after...
+...Key XOR: 3ea6f9d9c8229d6a
+...  S-Box: b1fa2e7e4366e7af
+...P-Layer: b50b27bdbf7fe245
+
+Round 25
+  Subkey: >>426bcd7ca93a4af0<<
+Text after...
+...Key XOR: f760eac11645a8b5
+...  S-Box: 2dac1f455a90f380
+...P-Layer: 746a5788a44c4dac
+
+Round 26
+  Subkey: >>c7cbc84d79af952b<<
+Text after...
+...Key XOR: b3a19fc5dde3d887
+...  S-Box: 8bf5e240771b733d
+...P-Layer: e8113ac96cde70ff
+
+Round 27
+  Subkey: >>d92bd8f97909af38<<
+Text after...
+...Key XOR: 313ae23015d7dfc7
+...  S-Box: b5bf16bc507d724d
+...P-Layer: b31155bbb62cfab9
+
+Round 28
+  Subkey: >>5e54bb257b1f2f2c<<
+Text after...
+...Key XOR: ed45ee9ecd33d595
+...  S-Box: 179011e147bb70e0
+...P-Layer: 223242ca427aed78
+
+Round 29
+  Subkey: >>e6bcebca9764af6d<<
+Text after...
+...Key XOR: c48ea900d51e4215
+...  S-Box: 4931fecc70519650
+...P-Layer: 4f088fa62c8478ba
+
+Round 30
+  Subkey: >>8cbcbcd79d7952e2<<
+Text after...
+...Key XOR: c3b43371b1fd2a58
+...  S-Box: 4b89bbd585276f03
+...P-Layer: 7e84835c4c3d5f55
+
+Round 31
+  Subkey: >>92bdb197979af3a0<<
+Text after...
+...Key XOR: ec3932cbdba7acf5
+...  S-Box: 14beb64878fdf420
+...P-Layer: 397856bc3caaa8b8
+
+Final Round (32):
+  Subkey: >>c54b9257b632f2fc<<
+Text after...
+...Key XOR: fc33c4eb8a985a44
+
+Input:
+       Key: 7ff238a445390d4e 723e
+      Data: 2adf4956adf5ef6e
+Output:
+    Cipher: fc33c4eb8a985a44

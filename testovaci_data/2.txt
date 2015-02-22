@@ -1,9 +1,16 @@
-KEY:    00112233445566778899
-Data:   8b7a48d917df3274
+KEY:    00 11 22 33 44 55 66 77 88 99
+Data:   8b 7a 48 d9 17 df 32 74
 
-Result: ab71b06e8f9e4415
+Result: ab 71 b0 6e 8f 9e 44 15
 
-
+######## Vysledek by present.c by Vojta and Zdenek ########
+#                                                         #
+# hello PRESENT!                                          #
+# Zprava k sifrovani: 8B 7A 48 D9 17 DF 32 74             #
+# Sifruji klicem:     00 11 22 33 44 55 66 77 88 99       #
+# Ciphertext:         AB 71 B0 6E 8F 9E 44 15             #
+#                                                         #
+###########################################################
 
 *** PRESENT Key Schedule ******************************
 *** (c) 2008 by Timm Korte, cryptool@easycrypt.de******

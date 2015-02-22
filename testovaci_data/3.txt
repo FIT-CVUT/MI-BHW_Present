@@ -1,9 +1,16 @@
-KEY:    7ff238a445390d4e723e
-Data:   2adf4956adf5ef6e
+KEY:    7f f2 38 a4 45 39 0d 4e 72 3e
+Data:   2a df 49 56 ad f5 ef 6e
 
-Result: fc33c4eb8a985a44
+Result: fc 33 c4 eb 8a 98 5a 44
 
-
+######## Vysledek by present.c by Vojta and Zdenek ########
+#                                                         #
+# hello PRESENT!                                          #
+# Zprava k sifrovani: 2A DF 49 56 AD F5 EF 6E             #
+# Sifruji klicem:     7F F2 38 A4 45 39 0D 4E 72 3E       #
+# Ciphertext:         FC 33 C4 EB 8A 98 5A 44             #
+#                                                         #
+###########################################################
 
 *** PRESENT Key Schedule ******************************
 *** (c) 2008 by Timm Korte, cryptool@easycrypt.de******

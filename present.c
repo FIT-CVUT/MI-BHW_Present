@@ -26,6 +26,20 @@
 typedef uint8_t bool;
 
 #define PREPINAC_KLIC "-k"
+#define USAGE  "USAGE: \n" \
+               "   %s [ -k KEY ]\n" \
+               "\n" \
+               "      KEY   80-bit klic v hexa zapisu\n" \
+               "            vychozi hodnota je 00 00 00 00 00 00 00 00 00 00\n    " \
+               "\n" \
+               "      Program cte zpravu ze stdin o velikost 64 bitu (1 blok)    n" \
+               "      v hexa zapisu\n" \
+               "\n" \
+               "EXAMPLE\n" \
+               "   echo \"FF FF FF FF FF FF FF FF\" | %s \n" \
+               "   echo \"FF FF FF FF FF FF FF FF\" | %s -k \"FF FF FF FF FF F    F FF FF FF FF\"" \
+               "\n"
+
 
 #define BITU_POCET    64
 #define KLIC_VELIKOST 10 /* 80 bit / 8 bit */
@@ -208,20 +222,7 @@ bool nactiZpravu( void ) {
 
 int main( int argc, char ** argv ) {
    if ( argc != 1 && argc != 3 ) {
-      printf( "USAGE: \n" );
-      printf( "   %s [ -k KEY ]\n"
-              "\n"
-              "      KEY   80-bit klic v hexa zapisu\n"
-              "            vychozi hodnota je 00 00 00 00 00 00 00 00 00 00\n"
-              "\n"
-              "      Program cte zpravu ze stdin o velikost 64 bitu (1 blok)\n"
-              "      v hexa zapisu\n"
-              "\n"
-              "EXAMPLE\n"
-              "   echo \"FF FF FF FF FF FF FF FF\" | %s \n"
-              "   echo \"FF FF FF FF FF FF FF FF\" | %s -k \"FF FF FF FF FF FF FF FF FF FF\""
-              "\n",
-              argv[0], argv[0], argv[0] );
+      printf( USAGE, argv[0], argv[0], argv[0] );
       return 1;
    }
    if ( argc == 3 ) {

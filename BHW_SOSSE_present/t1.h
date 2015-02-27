@@ -43,15 +43,17 @@
 
 /**
  *  T1 return codes
- *   T1_RET_OK         success
- *   T1_RET_ERR_CHKSM  checksum error
- *   T1_RET_ERR_BUFF   try to receive more data then buffer size is
+ *   T1_RET_OK               success
+ *   T1_RET_ERR_CHKSM        checksum error
+ *   T1_RET_ERR_BUFF_INPUT   try to receive more data then the input  buffer size is
+ *   T1_RET_ERR_BUFF_OUTPUT  try to send    more data then the output buffer size is
  *
  *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
  */
-#define T1_RET_OK        0
-#define T1_RET_ERR_CHKSM 1
-#define T1_RET_ERR_BUFF  2
+#define T1_RET_OK              0
+#define T1_RET_ERR_CHKSM       1
+#define T1_RET_ERR_BUFF_INPUT  2
+#define T1_RET_ERR_BUFF_OUTPUT 3
 
 /** 
  *	@brief	Transmits the ATR stored in T1.c

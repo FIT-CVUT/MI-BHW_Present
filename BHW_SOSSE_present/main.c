@@ -26,7 +26,7 @@
 
 	This Project has been modified by Vojtech Myslivec <vojtech.myslivec@fit.cvut.cz>
 	and Zdenek Novy <novyzde3@fit.cvut.cz>,	FIT-CTU <www.fit.cvut.cz/en> 
-	For the reason of fixing buffer overflow error and LC/LE mismatch error.
+	Due to fixing buffer overflow error and LC/LE mismatch error.
 	For further info see comments with tags #buffer_overflow #LC_LE #return_types
 	
 */
@@ -104,7 +104,7 @@ int main( void )
   	p_response_APDU = &response_APDU;
 
 	/* Reset C-APDU and R-APDU */
-    t1_reset_command_APDU (p_command_APDU);
+	t1_reset_command_APDU (p_command_APDU);
 	t1_reset_response_APDU (p_response_APDU);
 	
 
@@ -119,39 +119,43 @@ int main( void )
 		/* receive C-APDU according to T=1 */
     	result = t1_receive_APDU (p_command_APDU);    
 
-    	if (result != T1_RET_OK) {            /* check for EDC checksum error */
-			(*p_response_APDU).NAD = command_APDU.NAD;
+    	if (result != T1_RET_OK) {            /* check for errors */
+		(*p_response_APDU).NAD = command_APDU.NAD;
     		(*p_response_APDU).PCB = command_APDU.PCB;
     		(*p_response_APDU).LEN = 2;
     		(*p_response_APDU).LE  = 0;
- 			/**
-			 *  set SW1, SW2 according to error type
- 			 *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
- 			*/
-			switch ( result ) {
-			 	case T1_RET_ERR_BUFF:
-    		   		(*p_response_APDU).SW1 = SW1_BUFFER;       /* buffer size error  */
-					(*p_response_APDU).SW2 = SW2_BUFFER;
-			   		break;
-			 	case T1_RET_ERR_CHKSM:
-			    	(*p_response_APDU).SW1 = SW1_LRC;          /* LRC checksum error */
-					(*p_response_APDU).SW2 = SW2_LRC;
-					break;
-				default:
-			    	(*p_response_APDU).SW1 = SW1_UNDEFINED;    /* LRC checksum error */
-					(*p_response_APDU).SW2 = SW2_UNDEFINED;
-					break;
-			}
+		/**
+		 *  set SW1, SW2 according to error type
+ 		 *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ 		*/
+		switch ( result ) {
+		 	case T1_RET_ERR_BUFF_INPUT:
+    		   		(*p_response_APDU).SW1 = SW1_BUFFER_IN;    /* buffer size error  */
+				(*p_response_APDU).SW2 = SW2_BUFFER_IN;
+	   			break;
+		 	case T1_RET_ERR_BUFF_OUTPUT:
+    		   		(*p_response_APDU).SW1 = SW1_BUFFER_OUT;   /* buffer size error  */
+				(*p_response_APDU).SW2 = SW2_BUFFER_OUT;
+	   			break;
+		 	case T1_RET_ERR_CHKSM:
+		    		(*p_response_APDU).SW1 = SW1_LRC;          /* LRC checksum error */
+				(*p_response_APDU).SW2 = SW2_LRC;
+				break;
+			default:
+		    		(*p_response_APDU).SW1 = SW1_UNDEFINED;    /* LRC checksum error */
+				(*p_response_APDU).SW2 = SW2_UNDEFINED;
+				break;
+		}
     	}
     	else {
-			 /* Call command handler  */
+		 /* Call command handler  */
       		command_handler (p_command_APDU, p_response_APDU);
     	}
 	
 		/* transmit R-APDU according to T=1 */
 		t1_send_APDU (p_response_APDU);        
 
-    	/* Reset C-APDU and R-APDU */
+    		/* Reset C-APDU and R-APDU */
 		t1_reset_command_APDU (p_command_APDU);
 		t1_reset_response_APDU (p_response_APDU);
   	}

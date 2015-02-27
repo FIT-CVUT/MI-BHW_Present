@@ -19,12 +19,27 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 
-/*
 #define true  0
 #define false 1
 typedef uint8_t bool;
-*/
+
+#define PREPINAC_KLIC "-k"
+#define USAGE  "USAGE: \n" \
+               "   %s [ -k KEY ]\n" \
+               "\n" \
+               "      KEY   80-bit klic v hexa zapisu\n" \
+               "            vychozi hodnota je 00 00 00 00 00 00 00 00 00 00\n    " \
+               "\n" \
+               "      Program cte zpravu ze stdin o velikost 64 bitu (1 blok)    n" \
+               "      v hexa zapisu\n" \
+               "\n" \
+               "EXAMPLE\n" \
+               "   echo \"FF FF FF FF FF FF FF FF\" | %s \n" \
+               "   echo \"FF FF FF FF FF FF FF FF\" | %s -k \"FF FF FF FF FF F    F FF FF FF FF\"" \
+               "\n"
+
 
 #define BITU_POCET    64
 #define KLIC_VELIKOST 10 /* 80 bit / 8 bit */
@@ -179,26 +194,53 @@ void zasifruj( void ) {
    pridejRundovniKlic( );
 }
 
+
+/* TODO staticke nacteni ze stringu! */
+bool nactiKlic( const char * parametr ) {
+   /* OK, tohle neni pekne a je to staticke pro 10 bajtu... se stringama nevim jak lepe */
+   if ( 
+        KLIC_VELIKOST != sscanf( parametr, "%hhx %hhx %hhx %hhx %hhx %hhx %hhx %hhx %hhx %hhx",
+            &klic[9], &klic[8], &klic[7], &klic[6], &klic[5], &klic[4], &klic[3], &klic[2], &klic[1], &klic[0] ) 
+        
+      ) {
+      printf( "nactiKlic(): chyba vstupu!\n" );
+      return false;
+   }
+   return true;
+}
+
+bool nactiZpravu( void ) {
+   uint8_t i;
+   for ( i = 0 ; i < BLOK_VELIKOST ; i++ ) {
+      if ( 1 != scanf( "%hhx", &zprava[BLOK_VELIKOST - 1 - i] ) ) {
+         printf( "nactiZpravu(): chyba vstupu!\n" );
+         return false;
+      }
+   }
+   return true;
+}
+
 int main( int argc, char ** argv ) {
    if ( argc != 1 && argc != 3 ) {
-      printf( "USAGE: \n" );
-      printf( "   %s [ -k KEY ]\n"
-              "\n"
-              "      KEY   80-bit klic v hexa zapisu\n"
-              "            vychozi hodnota je 00 00 00 00 00 00 00 00 00 00\n"
-              "\n"
-              "      Program cte zpravu ze stdin o velikost 64 bitu (1 blok)\n"
-              "      v hexa zapisu\n"
-              "\n"
-              "EXAMPLE\n"
-              "   echo \"FF FF FF FF FF FF FF FF\" | %s \n"
-              "   echo \"FF FF FF FF FF FF FF FF\" | %s -k \"FF FF FF FF FF FF FF FF FF FF\""
-              "\n",
-              argv[0], argv[0], argv[0] );
+      printf( USAGE, argv[0], argv[0], argv[0] );
       return 1;
    }
    if ( argc == 3 ) {
+      if ( strncmp( PREPINAC_KLIC, argv[1], sizeof(PREPINAC_KLIC) ) == 0 ) {
+         if ( nactiKlic( argv[2] ) != true ) {
+            return 2;
+         }
+      }
+      else {
+         printf("Chybny prepinac\n" );
+         return 2;
+      }
    }
+
+   if ( nactiZpravu( ) != true ) {
+      return 3;
+   }
+
 
    printf( "hello PRESENT!\n" );
 

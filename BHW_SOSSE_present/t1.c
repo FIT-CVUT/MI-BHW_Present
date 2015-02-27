@@ -38,11 +38,11 @@
 /**
  * 	@brief	Number of ATR bytes
  */
-#define	ATR_SIZE				6
+#define	ATR_SIZE		6
 /**
  *	@brief	Number of ATR historical bytes
  */
-#define ATR_HISTORICAL_SIZE		10
+#define ATR_HISTORICAL_SIZE	10
 
 /**
  *	@brief	ATR definition
@@ -98,11 +98,11 @@ unsigned char t1_receive_APDU( str_command_APDU * command_APDU )
  *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
  */
   if ( LEN > INPUT_BUFFER_SIZE ) {
-    /* receive data, do not save them and end with error  */
+    /* receive data, do not save them and exit with error  */
     for ( cnt = 0; cnt < LEN; cnt++ ) {
 	  recbytet0 ();
 	}
-    return T1_RET_ERR_BUFF;
+    return T1_RET_ERR_BUFF_INPUT;
   }
 
   for ( cnt = 0; cnt < LEN; cnt++ ) {
@@ -144,7 +144,9 @@ unsigned char t1_receive_APDU( str_command_APDU * command_APDU )
  *
  *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
  */
-   /* TODO */
+  if ( (*command_APDU).LE > OUTPUT_DATA_SIZE ) {
+    return T1_RET_ERR_BUFF_OUTPUT;
+  }
   if (EDC != EDC_IN) {
     return T1_RET_ERR_CHKSM;
   }

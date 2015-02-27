@@ -43,19 +43,72 @@
  */
 #define TRUE	!FALSE
 
-/** 
- *	@brief	Return code 
+/**
+ *	Defined status words according to ISO
+ *  BUG FIX Myslivec, Novy 26.02.2015 #return_types
  */
-#define OK			1
-/** 
- *	@brief	Return code 
- */            
-#define ERROR       -1
+#define SW1_SUCCESS    0x90
+#define SW2_SUCCESS    0x00
+
+#define SW1_UNDEFINED  0x42
+#define SW2_UNDEFINED  0x00
+#define SW1_BUFFER     0x80
+#define SW2_BUFFER     0x00
+#define SW1_LRC        0x67
+#define SW2_LRC        0x00
+#define SW1_PARAMETER  0x70
+#define SW2_PARAMETER  0x00
+#define SW1_LE         0x84
+#define SW2_LE         0x00
+#define SW1_LC         0x85
+#define SW2_LC         0x00
+#define SW1_EEPROM     0x64
+#define SW2_EEPROM     0x00
+#define SW1_CLASS_ERR  0x6e
+#define SW2_CLASS_ERR  0x00
+#define SW1_INSTR_ERR  0x68
+#define SW2_INSTR_ERR  0x00
+#define SW1_LENGTH_ERR 0x6a
+#define SW2_LENGTH_ERR 0x00
+
 
 /**
- *	Maximmum Bytes reserved in the input Buffer 
+ *  Size of header (and tail) for command APDU in bytes
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
  */
-#define INPUT_BUFFER_SIZE 70
+#define INPUT_DATA_SIZE   64
+/**
+ *  Size of buffer for data in command APDU in bytes
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ */
+#define INPUT_HEADER_SIZE  9
+
+/**
+ *	Maximum Bytes reserved in the input Buffer 
+ *  BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow  
+ */
+/* #define INPUT_BUFFER_SIZE 70 */ 
+#define INPUT_BUFFER_SIZE  INPUT_DATA_SIZE+INPUT_HEADER_SIZE
+
+/**
+ *  Size of header (and tail) for response APDU in bytes
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ */
+#define OUTPUT_DATA_SIZE   32
+/**
+ *  Size of buffer for data in response APDU in bytes
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ */
+#define OUTPUT_HEADER_SIZE  6
+
+/**
+ *	Maximum Bytes reserved in the input Buffer 
+ *  BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow  
+ */
+/* #define INPUT_BUFFER_SIZE 70 */ 
+#define OUTPUT_BUFFER_SIZE  OUTPUT_DATA_SIZE+OUTPUT_HEADER_SIZE
+
+
 
 // Boolean data type.
 //typedef unsigned char bool;
@@ -75,7 +128,7 @@ typedef struct
   	unsigned char P2;									/**< Parameter Byte 2*/
   	unsigned char LC;									/**< Length Command*/
   	unsigned char LE;									/**< Length Expected*/
-  	unsigned char data_field[INPUT_BUFFER_SIZE - 9];	/**< Data Field*/
+  	unsigned char data_field[INPUT_DATA_SIZE];	        /**< Data Field*/
 	/*@}*/
 }
 str_command_APDU;
@@ -92,10 +145,11 @@ typedef struct
   	unsigned char SW1;				/**< Status Word 1*/
   	unsigned char SW2;				/**< Status Word 2*/
   	unsigned char LE;				/**< Length Expected*/
-  	unsigned char data_field[32];	/**< Data Field*/
+  	unsigned char data_field[OUTPUT_DATA_SIZE];	/**< Data Field*/
   	/*@}*/
 }
 str_response_APDU;
 
 
 #endif /* TYPES_H */ 
+

@@ -93,8 +93,7 @@ void crypt_asm_decrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * res
  *	This method parses the input/output data and calls the AES encryption algorithm.
  *	.
  */
-void crypt_present_encrypt_8     ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
-void crypt_present_encrypt_8_key ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
+void crypt_aes_encrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
 
 /** 
  *	@brief Parses the data from the C-APDU

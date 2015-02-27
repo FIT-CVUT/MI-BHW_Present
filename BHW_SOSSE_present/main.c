@@ -23,8 +23,13 @@
 	using the SOSSE <http://www.mbsks.franken.de/sosse/html/index.html> 
 	created by Matthias Bruestle and files 	from the Chair for Embedded Security (EMSEC), 
 	Ruhr-University Bochum <http://www.emsec.rub.de/chair/home/>.
-*/
 
+	This Project has been modified by Vojtech Myslivec <vojtech.myslivec@fit.cvut.cz>
+	and Zdenek Novy <novyzde3@fit.cvut.cz>,	FIT-CTU <www.fit.cvut.cz/en> 
+	For the reason of fixing buffer overflow error and LC/LE mismatch error.
+	For further info see comments with tags #buffer_overflow #LC_LE #return_types
+	
+*/
 
 /** 
  *	@file	main.c
@@ -42,6 +47,7 @@
  *	-	0x60	encryption using the AES
  *
  *	Supported return codes:	@a (SW1 & SW2)
+ * TODO
  *	-	0x9000	command executed successfuly
  *	-	0x6700	LRC error
  *	-	0x6800	instruction of the command not supported
@@ -113,13 +119,29 @@ int main( void )
 		/* receive C-APDU according to T=1 */
     	result = t1_receive_APDU (p_command_APDU);    
 
-    	if (result != OK) {            /* check for EDC checksum error */
+    	if (result != T1_RET_OK) {            /* check for EDC checksum error */
 			(*p_response_APDU).NAD = command_APDU.NAD;
     		(*p_response_APDU).PCB = command_APDU.PCB;
     		(*p_response_APDU).LEN = 2;
-    		(*p_response_APDU).LE = 0;
-    		(*p_response_APDU).SW1 = 0x67;    /* checksum error */
-    		(*p_response_APDU).SW2 = 0x00;
+    		(*p_response_APDU).LE  = 0;
+ 			/**
+			 *  set SW1, SW2 according to error type
+ 			 *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ 			*/
+			switch ( result ) {
+			 	case T1_RET_ERR_BUFF:
+    		   		(*p_response_APDU).SW1 = SW1_BUFFER;       /* buffer size error  */
+					(*p_response_APDU).SW2 = SW2_BUFFER;
+			   		break;
+			 	case T1_RET_ERR_CHKSM:
+			    	(*p_response_APDU).SW1 = SW1_LRC;          /* LRC checksum error */
+					(*p_response_APDU).SW2 = SW2_LRC;
+					break;
+				default:
+			    	(*p_response_APDU).SW1 = SW1_UNDEFINED;    /* LRC checksum error */
+					(*p_response_APDU).SW2 = SW2_UNDEFINED;
+					break;
+			}
     	}
     	else {
 			 /* Call command handler  */
@@ -134,4 +156,4 @@ int main( void )
 		t1_reset_response_APDU (p_response_APDU);
   	}
 }
- 
+

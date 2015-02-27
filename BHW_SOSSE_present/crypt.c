@@ -29,7 +29,7 @@
 #include "types.h"
 #include "example_C.h"
 #include "example_ASM.h"
-#include "example_PRESENT.h"
+#include "example_AES.h"
 
 /**	
  * SECRET KEY 
@@ -37,12 +37,16 @@
 static unsigned char key[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11};
 /**
  *	Input buffer for the C-APDU
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
  */
-static unsigned char input[32];
+/* static unsigned char input[16]; */
+static unsigned char input[INPUT_DATA_SIZE];
 /**
  *	Output buffer for the R-APDU
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
  */
-static unsigned char output[16];
+/* static unsigned char output[16]; */
+static unsigned char output[OUTPUT_DATA_SIZE];
 
 
 void crypt_c_encrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
@@ -73,25 +77,21 @@ void crypt_asm_decrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * res
 	crypt_block_prepare_output(resp_APDU, 16);
 }
 
-void crypt_present_encrypt_8 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
+void crypt_aes_encrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
 {
 	crypt_block_prepare_input(com_APDU);
-	encrypt_present_8( &input[0], &output[0], 0 );
-	crypt_block_prepare_output(resp_APDU, 8);
-}
-
-void crypt_present_encrypt_8_key ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
-{
-	crypt_block_prepare_input(com_APDU);
-	encrypt_present_8( &input[0], &output[0], &(input[8]) );
-	crypt_block_prepare_output(resp_APDU, 8);
+	encrypt_aes_16(&input[0], &output[0], &key[0]);
+	crypt_block_prepare_output(resp_APDU, 16);
 }
 
 void crypt_block_prepare_input ( str_command_APDU * com_APDU )
 {
 	unsigned char len;
-
-	for (len=0; len<(*com_APDU).LE; len++)
+/**
+ *  BUG FIX Myslivec, Novy 26.02.2015 #LC_LE
+ */
+ 	/* for (len=0; len<(*com_APDU).LE; len++) */
+	for (len=0; len<(*com_APDU).LC; len++)
 	{
 		input[len] = (*com_APDU).data_field[len];
 	}
@@ -103,8 +103,8 @@ void crypt_block_prepare_output ( str_response_APDU * resp_APDU, unsigned char l
 
 	(*resp_APDU).LEN = length + 2; 
 	(*resp_APDU).LE = length;
-  	(*resp_APDU).SW1 = 0x90;  
-  	(*resp_APDU).SW2 = 0x00;
+  	(*resp_APDU).SW1 = SW1_SUCCESS;  
+  	(*resp_APDU).SW2 = SW2_SUCCESS;
 
 	for (len=0; len<(*resp_APDU).LE; len++)
 	{

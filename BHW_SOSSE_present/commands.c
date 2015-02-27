@@ -87,20 +87,10 @@ void command_handler (str_command_APDU * com_APDU, str_response_APDU * resp_APDU
 				t1_set_unexpected_length(resp_APDU);
 			}
 			break;
-		case 0x60:	/* Call PRESENT-encryption */
-			if (command_verify_APDU_length(com_APDU, 0x08, 0x08) == OK)
+		case 0x60:	/* Call AES-encryption */
+			if (command_verify_APDU_length(com_APDU, 16, 16) == OK)
 			{
-          		crypt_present_encrypt_8 (com_APDU, resp_APDU);
-			}
-			else
-			{
-				t1_set_unexpected_length(resp_APDU);
-			}
-			break;
-		case 0x61:	/* Call PRESENT-encryption with key provided */
-			if (command_verify_APDU_length(com_APDU, 0x12, 0x08) == OK)
-			{
-          		crypt_present_encrypt_8_key (com_APDU, resp_APDU);
+          		crypt_aes_encrypt_16 (com_APDU, resp_APDU);
 			}
 			else
 			{

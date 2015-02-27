@@ -92,7 +92,20 @@ unsigned char t1_receive_APDU( str_command_APDU * command_APDU )
   PCB = recbytet0 ();
   LEN = recbytet0 ();
 
-  for (cnt = 0; cnt < LEN; cnt++) {
+/**
+ *  Check if the length of command APDU is bigger then allocated buffer size
+ *
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ */
+  if ( LEN > INPUT_BUFFER_SIZE ) {
+    /* receive data, do not save them and end with error  */
+    for ( cnt = 0; cnt < LEN; cnt++ ) {
+	  recbytet0 ();
+	}
+    return T1_RET_ERR_BUFF;
+  }
+
+  for ( cnt = 0; cnt < LEN; cnt++ ) {
     APDU_buffer[cnt] = recbytet0 ();
   }
   EDC_IN = recbytet0 ();
@@ -125,11 +138,18 @@ unsigned char t1_receive_APDU( str_command_APDU * command_APDU )
       (*command_APDU).LE = APDU_buffer[(*command_APDU).LEN - 1];    /* ISO7816 case 4 */
     }
   }
+
+/**
+ *  Check if the length of response APDU is bigger then allocated output buffer size
+ *
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ */
+   /* TODO */
   if (EDC != EDC_IN) {
-    return ERROR;
+    return T1_RET_ERR_CHKSM;
   }
   else {
-    return OK;
+    return T1_RET_OK;
   }
 }
 
@@ -199,31 +219,31 @@ void t1_reset_response_APDU ( str_response_APDU * response_APDU )
     (*response_APDU).PCB = 0x00;
     (*response_APDU).LEN = 2;
     (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = 0x64;    /* error w/o changing EEPROM */
-    (*response_APDU).SW2 = 0x00;
+    (*response_APDU).SW1 = SW1_EEPROM;    /* error w/o changing EEPROM */
+    (*response_APDU).SW2 = SW2_EEPROM;
 }
 
 void t1_set_class_not_supported ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).LEN = 2;
     (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = 0x6e;  /* class not supported */
-    (*response_APDU).SW2 = 0x00;
+    (*response_APDU).SW1 = SW1_CLASS_ERR;  /* class not supported */
+    (*response_APDU).SW2 = SW2_CLASS_ERR;
 }
 
 void t1_set_instruction_not_supported ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).LEN = 2;
     (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = 0x68;  /* instruction not supported */
-    (*response_APDU).SW2 = 0x00;
+    (*response_APDU).SW1 = SW1_INSTR_ERR;  /* instruction not supported */
+    (*response_APDU).SW2 = SW2_INSTR_ERR;
 }
 
 void t1_set_unexpected_length ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).LEN = 2;
     (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = 0x6a;  /* unexpected length */
-    (*response_APDU).SW2 = 0x00;
+    (*response_APDU).SW1 = SW1_LENGTH_ERR;  /* unexpected length */
+    (*response_APDU).SW2 = SW2_LENGTH_ERR;
 }
  

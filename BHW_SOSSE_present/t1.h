@@ -41,6 +41,18 @@
 
 #include "types.h"
 
+/**
+ *  T1 return codes
+ *   T1_RET_OK         success
+ *   T1_RET_ERR_CHKSM  checksum error
+ *   T1_RET_ERR_BUFF   try to receive more data then buffer size is
+ *
+ *	BUG FIX Myslivec, Novy 26.02.2015 #buffer_overflow 
+ */
+#define T1_RET_OK        0
+#define T1_RET_ERR_CHKSM 1
+#define T1_RET_ERR_BUFF  2
+
 /** 
  *	@brief	Transmits the ATR stored in T1.c
  */

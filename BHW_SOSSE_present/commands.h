@@ -31,12 +31,26 @@
  * 
  *  The file contains declaration of the command functions.
  */
-
 #ifndef SOSSE_COMMANDS_H
+#define SOSSE_COMMANDS_H
 
 #include "types.h"
 
-#define SOSSE_COMMANDS_H
+/**
+ *  constant ERROR and OK is used only in commands.c, moved from types.h here
+ *  redefined to 1 resp. 0 because of using unsigned chars!
+ *
+ *	BUG FIX Myslivec, Novy 26.02.2015 #return_types 
+ */
+/** 
+ *	@brief	Return code 
+ */
+#define OK     0
+/** 
+ *	@brief	Return code 
+ */            
+#define ERROR  1
+
 
 /** 
  * 	@brief 	Determine the executable command

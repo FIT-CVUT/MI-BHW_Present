@@ -52,8 +52,8 @@
 
 #define SW1_LRC        0x67
 #define SW2_LRC        0x00
-/* #define SW1_PARAMETER  0x70 */
-/* #define SW2_PARAMETER  0x00 */
+#define SW1_PARAMETER_ERR 0x70
+#define SW2_PARAMETER_ERR 0x00
 #define SW1_EEPROM     0x64
 #define SW2_EEPROM     0x00
 #define SW1_CLASS_ERR  0x6e

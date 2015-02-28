@@ -207,45 +207,56 @@ void t1_send_APDU( str_response_APDU * response_APDU )
 void t1_reset_command_APDU ( str_command_APDU * command_APDU )
 {
 	(*command_APDU).NAD = 0x00;
-    (*command_APDU).PCB = 0x00;
-    (*command_APDU).LEN = 0;
-    (*command_APDU).LE = 0;
-    (*command_APDU).LC = 0;
-    (*command_APDU).CLA = 0x00;
-    (*command_APDU).INS = 0x00;
+	(*command_APDU).PCB = 0x00;
+	(*command_APDU).LEN = 0;
+	(*command_APDU).LE = 0;
+	(*command_APDU).LC = 0;
+	(*command_APDU).CLA = 0x00;
+	(*command_APDU).INS = 0x00;
 }
 
 void t1_reset_response_APDU ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).NAD = 0x00;
-    (*response_APDU).PCB = 0x00;
-    (*response_APDU).LEN = 2;
-    (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = SW1_EEPROM;    /* error w/o changing EEPROM */
-    (*response_APDU).SW2 = SW2_EEPROM;
+	(*response_APDU).PCB = 0x00;
+	(*response_APDU).LEN = 2;
+	(*response_APDU).LE = 0;
+	(*response_APDU).SW1 = SW1_EEPROM;    /* error w/o changing EEPROM */
+	(*response_APDU).SW2 = SW2_EEPROM;
 }
 
 void t1_set_class_not_supported ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).LEN = 2;
-    (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = SW1_CLASS_ERR;  /* class not supported */
-    (*response_APDU).SW2 = SW2_CLASS_ERR;
+	(*response_APDU).LE = 0;
+	(*response_APDU).SW1 = SW1_CLASS_ERR;  /* class not supported */
+	(*response_APDU).SW2 = SW2_CLASS_ERR;
 }
 
 void t1_set_instruction_not_supported ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).LEN = 2;
-    (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = SW1_INSTR_ERR;  /* instruction not supported */
-    (*response_APDU).SW2 = SW2_INSTR_ERR;
+	(*response_APDU).LE = 0;
+	(*response_APDU).SW1 = SW1_INSTR_ERR;  /* instruction not supported */
+	(*response_APDU).SW2 = SW2_INSTR_ERR;
 }
 
 void t1_set_unexpected_length ( str_response_APDU * response_APDU )
 {
 	(*response_APDU).LEN = 2;
-    (*response_APDU).LE = 0;
-    (*response_APDU).SW1 = SW1_LENGTH_ERR;  /* unexpected length */
-    (*response_APDU).SW2 = SW2_LENGTH_ERR;
+	(*response_APDU).LE = 0;
+	(*response_APDU).SW1 = SW1_LENGTH_ERR;  /* unexpected length */
+	(*response_APDU).SW2 = SW2_LENGTH_ERR;
+}
+
+/**
+ *	BUG FIX Myslivec, Novy 26.02.2015 #parameters_check
+ */
+void t1_set_unexpected_parameters ( str_response_APDU * response_APDU )
+{
+	(*response_APDU).LEN = 2;
+	(*response_APDU).LE = 0;
+	(*response_APDU).SW1 = SW1_PARAMETER_ERR;  /* unexpected parameters */
+	(*response_APDU).SW2 = SW2_PARAMETER_ERR;
 }
  

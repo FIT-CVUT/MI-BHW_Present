@@ -120,4 +120,12 @@ void t1_set_class_not_supported ( str_response_APDU * response_APDU );
  */
 void t1_set_unexpected_length ( str_response_APDU * response_APDU );
 
+/**
+ *	@brief	Sets the unexpected parameters error response into the R-APDU
+ *
+ *	@param[out]	Pointer to the response_APDU structure
+ *
+ */
+void t1_set_unexpected_parameters ( str_response_APDU * response_APDU );
+
 #endif /* SOSSE_T1_H */ 

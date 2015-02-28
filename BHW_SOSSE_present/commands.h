@@ -66,9 +66,18 @@ void command_handler ( str_command_APDU * com_APDU, str_response_APDU * resp_APD
  *	@param[in] 	Desired LC of the C-APDU
  *	@param[in] 	Desired LE of the C-APDU
  *
- *	@return 1 when the C-APDU matches the desired lengths else -1
+ *	@return OK when the C-APDU matches the desired lengths else ERROR
  */
 unsigned char command_verify_APDU_length ( str_command_APDU * command_APDU, unsigned char APDU_LC, unsigned char APDU_LE );
 
+/** 
+ * 	@brief 	Determines the correct parameters of the command
+ *	@param[in] 	Pointer to the @a input C-APDU
+ *	@param[in] 	Desired LC of the C-APDU
+ *	@param[in] 	Desired LE of the C-APDU
+ *
+ *	@return OK ehen the C-APDU matches the desired parameters else ERROR
+ */
+unsigned char command_verify_APDU_parameters ( str_command_APDU * command_APDU, unsigned char APDU_P1, unsigned char APDU_P2 )
 
 #endif /* SOSSE_COMMANDS_H */ 

@@ -27,7 +27,7 @@
 	This Project has been modified by Vojtech Myslivec <vojtech.myslivec@fit.cvut.cz>
 	and Zdenek Novy <novyzde3@fit.cvut.cz>,	FIT-CTU <www.fit.cvut.cz/en> 
 	Due to fixing buffer overflow error and LC/LE mismatch error.
-	For further info see comments with tags #buffer_overflow #LC_LE #return_types
+	For further info see comments with tags #buffer_overflow #LC_LE #return_types #parameters_check
 	
 */
 

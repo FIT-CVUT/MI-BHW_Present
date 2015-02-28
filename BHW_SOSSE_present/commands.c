@@ -44,72 +44,88 @@ void command_handler (str_command_APDU * com_APDU, str_response_APDU * resp_APDU
   }
   else {            /* I-Block Handling */
 
-  switch ((*com_APDU).CLA) {	/* Determine the class of the command according to the CLA byte */
-    case 0x80: {
-      switch ((*com_APDU).INS) {	/* Determine the type of the instruction according to the INS byte*/
-        case 0x40:	/* Call C-encryption example */
-			if (command_verify_APDU_length(com_APDU, 16, 16) == OK)
-			{
-          		crypt_c_encrypt_16 (com_APDU, resp_APDU);
-			}
-			else
-			{
-				t1_set_unexpected_length(resp_APDU);
-			}
-          	break;
-        case 0x42:	/* Call C-decryption example */
-			if (command_verify_APDU_length(com_APDU, 16, 16) == OK)
-			{
-          		crypt_c_decrypt_16 (com_APDU, resp_APDU);
-			}
-			else
-			{
-				t1_set_unexpected_length(resp_APDU);
-			}
-          	break;
-		case 0x50:	/* Call ASM-encryption */
-			if (command_verify_APDU_length(com_APDU, 16, 16) == OK)
-			{
-          		crypt_asm_encrypt_16 (com_APDU, resp_APDU);
-			}
-			else
-			{
-				t1_set_unexpected_length(resp_APDU);
-			}
-			break;
-		case 0x52:	/* Call ASM-decryption */
-			if (command_verify_APDU_length(com_APDU, 16, 16) == OK)
-			{
-          		crypt_asm_decrypt_16 (com_APDU, resp_APDU);
-			}
-			else
-			{
-				t1_set_unexpected_length(resp_APDU);
-			}
-			break;
-		case 0x60:	/* Call AES-encryption */
-			if (command_verify_APDU_length(com_APDU, 16, 16) == OK)
-			{
-          		crypt_aes_encrypt_16 (com_APDU, resp_APDU);
-			}
-			else
-			{
-				t1_set_unexpected_length(resp_APDU);
-			}
-			break;
-        default:
-          	t1_set_instruction_not_supported(resp_APDU);
-          	break;
-        }
-      break;
+   switch ((*com_APDU).CLA) {	/* Determine the class of the command according to the CLA byte */
+      case 0x80: {
+         switch ((*com_APDU).INS) {	/* Determine the type of the instruction according to the INS byte*/
+            case 0x40:	/* Call C-encryption example */
+               if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
+                     t1_set_unexpected_parameters( resp_APDU );
+               } 
+               else if ( command_verify_APDU_length(     com_APDU, 0x10, 0x10 ) != OK ) {
+                     t1_set_unexpected_length(resp_APDU);
+               }
+               else {
+                     crypt_c_encrypt_16 (com_APDU, resp_APDU);
+               }
+               break;
+            case 0x42:	/* Call C-decryption example */
+               if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
+                     t1_set_unexpected_parameters( resp_APDU );
+               } 
+               else if ( command_verify_APDU_length(     com_APDU, 0x10, 0x10 ) != OK ) {
+                     t1_set_unexpected_length(resp_APDU);
+               }
+               else {
+                     crypt_c_decrypt_16 (com_APDU, resp_APDU);
+               }
+               break;
+            case 0x50:	/* Call ASM-encryption */
+               if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
+                     t1_set_unexpected_parameters( resp_APDU );
+               } 
+               else if ( command_verify_APDU_length(     com_APDU, 0x10, 0x10 ) != OK ) {
+                     t1_set_unexpected_length(resp_APDU);
+               }
+               else {
+                           crypt_asm_encrypt_16 (com_APDU, resp_APDU);
+               }
+               break;
+            case 0x52:	/* Call ASM-decryption */
+               if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
+                     t1_set_unexpected_parameters( resp_APDU );
+               } 
+               else if ( command_verify_APDU_length(     com_APDU, 0x10, 0x10 ) != OK ) {
+                     t1_set_unexpected_length(resp_APDU);
+               }
+               else {
+                     crypt_asm_decrypt_16 (com_APDU, resp_APDU);
+               }
+               break;
+            case 0x60:	/* Call AES-encryption */
+               if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
+                     t1_set_unexpected_parameters( resp_APDU );
+               } 
+               else if ( command_verify_APDU_length(     com_APDU, 0x10, 0x10 ) != OK ) {
+                     t1_set_unexpected_length(resp_APDU);
+               }
+               else {
+                     crypt_aes_encrypt_16 (com_APDU, resp_APDU);
+               }
+               break;
+            default:
+               t1_set_instruction_not_supported(resp_APDU);
+               break;
+         }
+         break;
       }
-    default:
-      {
-	  t1_set_class_not_supported(resp_APDU);
-      break;
+      default: {
+         t1_set_class_not_supported(resp_APDU);
+         break;
       }
     }
   }
+}
+
+/**
+ *	BUG FIX Myslivec, Novy 26.02.2015 #parameters_check
+ */
+unsigned char command_verify_APDU_parameters ( str_command_APDU * command_APDU, unsigned char APDU_P1, unsigned char APDU_P2 )
+{
+	if ( (*command_APDU).P1 == APDU_P1 && (*command_APDU).P2 == APDU_P2 )
+	{
+		return OK;
+	}
+	return ERROR;
 }
 
 unsigned char command_verify_APDU_length ( str_command_APDU * command_APDU, unsigned char APDU_LC, unsigned char APDU_LE )
@@ -120,3 +136,6 @@ unsigned char command_verify_APDU_length ( str_command_APDU * command_APDU, unsi
 	}
 	return ERROR;
 }
+
+
+

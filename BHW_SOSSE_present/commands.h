@@ -78,6 +78,6 @@ unsigned char command_verify_APDU_length ( str_command_APDU * command_APDU, unsi
  *
  *	@return OK ehen the C-APDU matches the desired parameters else ERROR
  */
-unsigned char command_verify_APDU_parameters ( str_command_APDU * command_APDU, unsigned char APDU_P1, unsigned char APDU_P2 )
+unsigned char command_verify_APDU_parameters ( str_command_APDU * command_APDU, unsigned char APDU_P1, unsigned char APDU_P2 );
 
 #endif /* SOSSE_COMMANDS_H */ 

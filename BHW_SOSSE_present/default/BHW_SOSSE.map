@@ -1,0 +1,497 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              t1.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+response_APDU       0x26              main.o
+direction           0x1               io.o
+buffer              0x10              example_AES.o
+p_command_APDU      0x2               main.o
+p_response_APDU     0x2               main.o
+command_APDU        0x49              main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+LOAD main.o
+LOAD commands.o
+LOAD io.o
+LOAD t1.o
+LOAD crypt.o
+LOAD example_C.o
+LOAD example_ASM.o
+LOAD example_AES.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xaa2
+ *(.vectors)
+ .vectors       0x00000000       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000048                . = ALIGN (0x2)
+                0x00000048                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000048        0x0 linker stubs
+ *(.trampolines*)
+                0x00000048                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000048                __ctors_start = .
+ *(.ctors)
+                0x00000048                __ctors_end = .
+                0x00000048                __dtors_start = .
+ *(.dtors)
+                0x00000048                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000048        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+                0x00000048                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000048        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000054       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000054                __do_copy_data
+ .init4         0x0000006a       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x0000006a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000007a        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+ *(.init9)
+ *(.text)
+ .text          0x00000082        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+                0x00000082                __vector_1
+                0x00000082                __vector_12
+                0x00000082                __bad_interrupt
+                0x00000082                __vector_6
+                0x00000082                __vector_3
+                0x00000082                __vector_11
+                0x00000082                __vector_13
+                0x00000082                __vector_17
+                0x00000082                __vector_7
+                0x00000082                __vector_5
+                0x00000082                __vector_4
+                0x00000082                __vector_9
+                0x00000082                __vector_2
+                0x00000082                __vector_15
+                0x00000082                __vector_8
+                0x00000082                __vector_14
+                0x00000082                __vector_10
+                0x00000082                __vector_16
+ .text          0x00000086       0xd6 main.o
+                0x00000086                main
+ .text          0x0000015c      0x168 commands.o
+                0x0000017a                command_verify_APDU_length
+                0x0000015c                command_verify_APDU_parameters
+                0x00000198                command_handler
+ .text          0x000002c4      0x110 io.o
+                0x0000035a                sendbytet0
+                0x000002d0                recbytet0
+                0x000002cc                delay1etu
+ .text          0x000003d4      0x338 t1.o
+                0x0000042c                t1_set_unexpected_parameters
+                0x000005ae                t1_receive_APDU
+                0x0000041c                t1_set_unexpected_length
+                0x000003e6                t1_reset_response_APDU
+                0x000003fc                t1_set_class_not_supported
+                0x00000554                t1_transmit_ATR
+                0x0000040c                t1_set_instruction_not_supported
+                0x000003d4                t1_reset_command_APDU
+                0x0000043e                t1_send_APDU
+ .text          0x0000070c      0x1ec crypt.o
+                0x0000070c                crypt_block_prepare_input
+                0x00000738                crypt_block_prepare_output
+                0x0000080e                crypt_asm_encrypt_16
+                0x00000772                crypt_aes_encrypt_16
+                0x000008aa                crypt_c_encrypt_16
+                0x0000085c                crypt_c_decrypt_16
+                0x000007c0                crypt_asm_decrypt_16
+ .text          0x000008f8       0x8e example_C.o
+                0x000008f8                encrypt_c_16
+                0x00000944                decrypt_c_16
+ .text          0x00000986      0x104 example_ASM.o
+                0x00000a08                decrypt_asm_16
+                0x00000986                encrypt_asm_16
+ .text          0x00000a8a       0x14 example_AES.o
+                0x00000a8a                encrypt_aes_16
+ .text          0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000a9e                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000a9e                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000a9e                exit
+                0x00000a9e                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000a9e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000aa2                _etext = .
+
+.data           0x00800060       0x20 load address 0x00000aa2
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+ .data          0x00800060        0x0 main.o
+ .data          0x00800060        0x0 commands.o
+ .data          0x00800060        0x0 io.o
+ .data          0x00800060       0x10 t1.o
+                0x00800066                ATR_HISTORICAL
+                0x00800060                ATR
+ .data          0x00800070       0x10 crypt.o
+ .data          0x00800080        0x0 example_C.o
+ .data          0x00800080        0x0 example_ASM.o
+ .data          0x00800080        0x0 example_AES.o
+ .data          0x00800080        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800080        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800080        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800080                . = ALIGN (0x2)
+                0x00800080                _edata = .
+                0x00800080                PROVIDE (__data_end, .)
+
+.bss            0x00800080       0xe4
+                0x00800080                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800080        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
+ .bss           0x00800080        0x0 main.o
+ .bss           0x00800080        0x0 commands.o
+ .bss           0x00800080        0x0 io.o
+ .bss           0x00800080        0x0 t1.o
+ .bss           0x00800080       0x60 crypt.o
+ .bss           0x008000e0        0x0 example_C.o
+ .bss           0x008000e0        0x0 example_ASM.o
+ .bss           0x008000e0        0x0 example_AES.o
+ .bss           0x008000e0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008000e0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008000e0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x008000e0       0x73 main.o
+                0x008000e0                response_APDU
+                0x00800106                p_command_APDU
+                0x00800108                p_response_APDU
+                0x0080010a                command_APDU
+ COMMON         0x00800153        0x1 io.o
+                0x00800153                direction
+ COMMON         0x00800154       0x10 example_AES.o
+                0x00800154                buffer
+                0x00800164                PROVIDE (__bss_end, .)
+                0x00000aa2                __data_load_start = LOADADDR (.data)
+                0x00000ac2                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800164        0x0
+                0x00800164                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800164                PROVIDE (__noinit_end, .)
+                0x00800164                _end = .
+                0x00800164                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x100
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 commands.o
+ .debug_aranges
+                0x00000040       0x20 io.o
+ .debug_aranges
+                0x00000060       0x20 t1.o
+ .debug_aranges
+                0x00000080       0x20 crypt.o
+ .debug_aranges
+                0x000000a0       0x20 example_C.o
+ .debug_aranges
+                0x000000c0       0x20 example_ASM.o
+ .debug_aranges
+                0x000000e0       0x20 example_AES.o
+
+.debug_pubnames
+                0x00000000      0x316
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x65 main.o
+ .debug_pubnames
+                0x00000065       0x68 commands.o
+ .debug_pubnames
+                0x000000cd      0x11d t1.o
+ .debug_pubnames
+                0x000001ea       0xc8 crypt.o
+ .debug_pubnames
+                0x000002b2       0x34 example_C.o
+ .debug_pubnames
+                0x000002e6       0x30 example_AES.o
+
+.debug_info     0x00000000     0x1056
+ *(.debug_info)
+ .debug_info    0x00000000      0x1f3 main.o
+ .debug_info    0x000001f3      0x3be commands.o
+ .debug_info    0x000005b1       0x65 io.o
+ .debug_info    0x00000616      0x3dd t1.o
+ .debug_info    0x000009f3      0x417 crypt.o
+ .debug_info    0x00000e0a      0x10a example_C.o
+ .debug_info    0x00000f14       0x6e example_ASM.o
+ .debug_info    0x00000f82       0xd4 example_AES.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x5d6
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xcc main.o
+ .debug_abbrev  0x000000cc      0x10b commands.o
+ .debug_abbrev  0x000001d7       0x14 io.o
+ .debug_abbrev  0x000001eb      0x14e t1.o
+ .debug_abbrev  0x00000339      0x144 crypt.o
+ .debug_abbrev  0x0000047d       0xa2 example_C.o
+ .debug_abbrev  0x0000051f       0x14 example_ASM.o
+ .debug_abbrev  0x00000533       0xa3 example_AES.o
+
+.debug_line     0x00000000      0xb4b
+ *(.debug_line)
+ .debug_line    0x00000000      0x158 main.o
+ .debug_line    0x00000158      0x182 commands.o
+ .debug_line    0x000002da       0xba io.o
+ .debug_line    0x00000394      0x3d2 t1.o
+ .debug_line    0x00000766      0x1eb crypt.o
+ .debug_line    0x00000951       0xc0 example_C.o
+ .debug_line    0x00000a11       0xc0 example_ASM.o
+ .debug_line    0x00000ad1       0x7a example_AES.o
+
+.debug_frame    0x00000000      0x1d0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x20 main.o
+ .debug_frame   0x00000020       0x40 commands.o
+ .debug_frame   0x00000060       0xa0 t1.o
+ .debug_frame   0x00000100       0x80 crypt.o
+ .debug_frame   0x00000180       0x30 example_C.o
+ .debug_frame   0x000001b0       0x20 example_AES.o
+
+.debug_str      0x00000000      0x34d
+ *(.debug_str)
+ .debug_str     0x00000000       0xb4 main.o
+                                 0xcf (size before relaxing)
+ .debug_str     0x000000b4       0x8b commands.o
+                                0x117 (size before relaxing)
+ .debug_str     0x0000013f       0xf6 t1.o
+                                0x190 (size before relaxing)
+ .debug_str     0x00000235       0xa5 crypt.o
+                                0x14b (size before relaxing)
+ .debug_str     0x000002da       0x4e example_C.o
+                                 0xe0 (size before relaxing)
+ .debug_str     0x00000328       0x25 example_AES.o
+                                 0xd6 (size before relaxing)
+
+.debug_loc      0x00000000      0x702
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x4a main.o
+ .debug_loc     0x0000004a      0x1a0 commands.o
+ .debug_loc     0x000001ea      0x269 t1.o
+ .debug_loc     0x00000453      0x23f crypt.o
+ .debug_loc     0x00000692       0x58 example_C.o
+ .debug_loc     0x000006ea       0x18 example_AES.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(BHW_SOSSE.elf elf32-avr)
+LOAD linker stubs

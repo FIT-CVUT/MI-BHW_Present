@@ -47,20 +47,20 @@
  *	Defined status words according to ISO
  *  BUG FIX Myslivec, Novy 26.02.2015 #return_types
  */
-#define SW1_SUCCESS    0x90
-#define SW2_SUCCESS    0x00
+#define SW1_SUCCESS    0x90 /* Normal processing */
+#define SW2_SUCCESS    0x00 /* No further qualification */
 
-#define SW1_LRC        0x67
-#define SW2_LRC        0x00
-#define SW1_PARAMETER_ERR 0x70
-#define SW2_PARAMETER_ERR 0x00
-#define SW1_EEPROM     0x64
+#define SW1_LRC        					0x6a /* Wrong parameter(s) P1-P2 */
+#define SW2_LRC        					0x87 /* Lc inconsistent with P1-P2 */
+#define SW1_PARAMETER_ERR 			0x6b /* Wrong parameter(s) P1-P2 */
+#define SW2_PARAMETER_ERR 			0x00 /* No information given */
+#define SW1_EEPROM     0x64 /* State of non-volatile memory unchanged (SW2='00', other values are RFU) */
 #define SW2_EEPROM     0x00
-#define SW1_CLASS_ERR  0x6e
+#define SW1_CLASS_ERR  0x6e /* Class not supported */
 #define SW2_CLASS_ERR  0x00
-#define SW1_INSTR_ERR  0x68
+#define SW1_INSTR_ERR  0x6d /* Instruction code not supported or invalid */
 #define SW2_INSTR_ERR  0x00
-#define SW1_LENGTH_ERR 0x6a
+#define SW1_LENGTH_ERR 0x67 /* Wrong length */
 #define SW2_LENGTH_ERR 0x00
 
 #define SW1_UNDEFINED  0x42
@@ -69,6 +69,13 @@
 #define SW2_BUFFER_IN  0x00
 #define SW1_BUFFER_OUT 0x80
 #define SW2_BUFFER_OUT 0x00
+/**
+ * Status words podle ISO (http://www.cardwerk.com/smartcards/smartcard_standard_ISO7816-4_5_basic_organizations.aspx#table12) Table 12
+ */
+#define SW1_MEMORY_UNCHANGED  							 0x62
+#define SW2_MEMORY_UNCHANGED_DATA_CORRUPTED  0x81
+#define SW2_MEMORY_UNCHANGED_DATA_CORRUPTED  0x
+
 
 /**
  *  Size of header (and tail) for command APDU in bytes

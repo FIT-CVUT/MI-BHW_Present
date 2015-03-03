@@ -133,7 +133,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xaa2
+.text           0x00000000      0xac2
  *(.vectors)
  .vectors       0x00000000       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
                 0x00000000                __vectors
@@ -217,7 +217,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000035a                sendbytet0
                 0x000002d0                recbytet0
                 0x000002cc                delay1etu
- .text          0x000003d4      0x338 t1.o
+ .text          0x000003d4      0x358 t1.o
                 0x0000042c                t1_set_unexpected_parameters
                 0x000005ae                t1_receive_APDU
                 0x0000041c                t1_set_unexpected_length
@@ -227,35 +227,35 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000040c                t1_set_instruction_not_supported
                 0x000003d4                t1_reset_command_APDU
                 0x0000043e                t1_send_APDU
- .text          0x0000070c      0x1ec crypt.o
-                0x0000070c                crypt_block_prepare_input
-                0x00000738                crypt_block_prepare_output
-                0x0000080e                crypt_asm_encrypt_16
-                0x00000772                crypt_aes_encrypt_16
-                0x000008aa                crypt_c_encrypt_16
-                0x0000085c                crypt_c_decrypt_16
-                0x000007c0                crypt_asm_decrypt_16
- .text          0x000008f8       0x8e example_C.o
-                0x000008f8                encrypt_c_16
-                0x00000944                decrypt_c_16
- .text          0x00000986      0x104 example_ASM.o
-                0x00000a08                decrypt_asm_16
-                0x00000986                encrypt_asm_16
- .text          0x00000a8a       0x14 example_AES.o
-                0x00000a8a                encrypt_aes_16
- .text          0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x00000a9e                . = ALIGN (0x2)
+ .text          0x0000072c      0x1ec crypt.o
+                0x0000072c                crypt_block_prepare_input
+                0x00000758                crypt_block_prepare_output
+                0x0000082e                crypt_asm_encrypt_16
+                0x00000792                crypt_aes_encrypt_16
+                0x000008ca                crypt_c_encrypt_16
+                0x0000087c                crypt_c_decrypt_16
+                0x000007e0                crypt_asm_decrypt_16
+ .text          0x00000918       0x8e example_C.o
+                0x00000918                encrypt_c_16
+                0x00000964                decrypt_c_16
+ .text          0x000009a6      0x104 example_ASM.o
+                0x00000a28                decrypt_asm_16
+                0x000009a6                encrypt_asm_16
+ .text          0x00000aaa       0x14 example_AES.o
+                0x00000aaa                encrypt_aes_16
+ .text          0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000abe                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                0x00000a9e                . = ALIGN (0x2)
+ .text.libgcc   0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000abe                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000a9e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000a9e                exit
-                0x00000a9e                _exit
+ .fini9         0x00000abe        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000abe                exit
+                0x00000abe                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -274,11 +274,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000a9e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000abe        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000aa2                _etext = .
+                0x00000ac2                _etext = .
 
-.data           0x00800060       0x20 load address 0x00000aa2
+.data           0x00800060       0x20 load address 0x00000ac2
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm163.o
@@ -330,8 +330,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x00800154       0x10 example_AES.o
                 0x00800154                buffer
                 0x00800164                PROVIDE (__bss_end, .)
-                0x00000aa2                __data_load_start = LOADADDR (.data)
-                0x00000ac2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000ac2                __data_load_start = LOADADDR (.data)
+                0x00000ae2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800164        0x0
                 0x00800164                PROVIDE (__noinit_start, .)
@@ -424,39 +424,39 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_pubnames
                 0x000002e6       0x30 example_AES.o
 
-.debug_info     0x00000000     0x1056
+.debug_info     0x00000000     0x1057
  *(.debug_info)
  .debug_info    0x00000000      0x1f3 main.o
  .debug_info    0x000001f3      0x3be commands.o
  .debug_info    0x000005b1       0x65 io.o
- .debug_info    0x00000616      0x3dd t1.o
- .debug_info    0x000009f3      0x417 crypt.o
- .debug_info    0x00000e0a      0x10a example_C.o
- .debug_info    0x00000f14       0x6e example_ASM.o
- .debug_info    0x00000f82       0xd4 example_AES.o
+ .debug_info    0x00000616      0x3de t1.o
+ .debug_info    0x000009f4      0x417 crypt.o
+ .debug_info    0x00000e0b      0x10a example_C.o
+ .debug_info    0x00000f15       0x6e example_ASM.o
+ .debug_info    0x00000f83       0xd4 example_AES.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x5d6
+.debug_abbrev   0x00000000      0x5e5
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xcc main.o
  .debug_abbrev  0x000000cc      0x10b commands.o
  .debug_abbrev  0x000001d7       0x14 io.o
- .debug_abbrev  0x000001eb      0x14e t1.o
- .debug_abbrev  0x00000339      0x144 crypt.o
- .debug_abbrev  0x0000047d       0xa2 example_C.o
- .debug_abbrev  0x0000051f       0x14 example_ASM.o
- .debug_abbrev  0x00000533       0xa3 example_AES.o
+ .debug_abbrev  0x000001eb      0x15d t1.o
+ .debug_abbrev  0x00000348      0x144 crypt.o
+ .debug_abbrev  0x0000048c       0xa2 example_C.o
+ .debug_abbrev  0x0000052e       0x14 example_ASM.o
+ .debug_abbrev  0x00000542       0xa3 example_AES.o
 
-.debug_line     0x00000000      0xb4b
+.debug_line     0x00000000      0xb6b
  *(.debug_line)
  .debug_line    0x00000000      0x158 main.o
  .debug_line    0x00000158      0x182 commands.o
  .debug_line    0x000002da       0xba io.o
- .debug_line    0x00000394      0x3d2 t1.o
- .debug_line    0x00000766      0x1eb crypt.o
- .debug_line    0x00000951       0xc0 example_C.o
- .debug_line    0x00000a11       0xc0 example_ASM.o
- .debug_line    0x00000ad1       0x7a example_AES.o
+ .debug_line    0x00000394      0x3f2 t1.o
+ .debug_line    0x00000786      0x1eb crypt.o
+ .debug_line    0x00000971       0xc0 example_C.o
+ .debug_line    0x00000a31       0xc0 example_ASM.o
+ .debug_line    0x00000af1       0x7a example_AES.o
 
 .debug_frame    0x00000000      0x1d0
  *(.debug_frame)
@@ -482,14 +482,14 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .debug_str     0x00000328       0x25 example_AES.o
                                  0xd6 (size before relaxing)
 
-.debug_loc      0x00000000      0x702
+.debug_loc      0x00000000      0x6e2
  *(.debug_loc)
  .debug_loc     0x00000000       0x4a main.o
  .debug_loc     0x0000004a      0x1a0 commands.o
- .debug_loc     0x000001ea      0x269 t1.o
- .debug_loc     0x00000453      0x23f crypt.o
- .debug_loc     0x00000692       0x58 example_C.o
- .debug_loc     0x000006ea       0x18 example_AES.o
+ .debug_loc     0x000001ea      0x249 t1.o
+ .debug_loc     0x00000433      0x23f crypt.o
+ .debug_loc     0x00000672       0x58 example_C.o
+ .debug_loc     0x000006ca       0x18 example_AES.o
 
 .debug_macinfo
  *(.debug_macinfo)

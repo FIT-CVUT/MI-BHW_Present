@@ -102,6 +102,10 @@ unsigned char t1_receive_APDU( str_command_APDU * command_APDU )
     for ( cnt = 0; cnt < LEN; cnt++ ) {
 	  recbytet0 ();
 	}
+	EDC_IN = recbytet0 ();
+	(*command_APDU).NAD = NAD;    /* Network address */
+	(*command_APDU).PCB = PCB;    /* protocol byte */
+	(*command_APDU).LEN = LEN;    /* length */
     return T1_RET_ERR_BUFF_INPUT;
   }
 

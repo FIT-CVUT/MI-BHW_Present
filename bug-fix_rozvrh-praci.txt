@@ -1,0 +1,19 @@
+
+1)	Buffer overflow #buffer_overflow
+  * T1 protokol (obal APDU)
+  * INPUT BUFFER SIZE
+  * kontroly pri kopirovani dat
+
+-2)	LC #LC_LE
+  * prepare_input LE nahradit LC
+  *
+
+3)	zadefinovat nove typy chyb #return_types
+-  * t1_receive_APDU (volano z main)
+  * t1
+  * types.h zavedeni chybovych kodu status words (SW1, SW2)
+  * presunuto z OK a ERR types
+
+-4)  kontrola parametru #parameters_check
+	* pro kontrolu P1 a P2
+	* vola se podobne jako kontrola velikosti dat

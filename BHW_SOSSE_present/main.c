@@ -47,13 +47,12 @@
  *	-	0x60	encryption using the AES
  *
  *	Supported return codes:	@a (SW1 & SW2)
- * TODO
  *	-	0x9000	command executed successfuly
- *	-	0x6700	LRC error
- *	-	0x6800	instruction of the command not supported
- *	-	0x6a00	unexpected length of the command or of the expected response
+ *	-	0x6a87	LRC error
+ *	-	0x6700	unexpected length of the command or of the expected response
  *	-	0x6e00	class of the command not supported
- *
+ *	-	0x6d00	instruction of the command not supported
+ *  -   ... see types.h for more
  */
 
 #include "commands.h"
@@ -159,5 +158,6 @@ int main( void )
 		t1_reset_command_APDU (p_command_APDU);
 		t1_reset_response_APDU (p_response_APDU);
   	}
+	return 0;
 }
 

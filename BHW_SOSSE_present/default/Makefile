@@ -37,7 +37,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Objects that must be built in order to link
-OBJECTS = main.o commands.o io.o t1.o crypt.o example_C.o example_ASM.o example_PRESENT.o 
+OBJECTS = main.o commands.o io.o t1.o crypt.o example_C.o example_ASM.o example_AES.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
@@ -65,7 +65,7 @@ example_C.o: ../example_C.c
 example_ASM.o: ../example_ASM.S
 	$(CC) $(INCLUDES) $(ASMFLAGS) -c  $<
 
-example_PRESENT.o: ../example_PRESENT.c
+example_AES.o: ../example_AES.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link

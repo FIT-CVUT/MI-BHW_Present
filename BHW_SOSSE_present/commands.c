@@ -91,15 +91,26 @@ void command_handler (str_command_APDU * com_APDU, str_response_APDU * resp_APDU
                      crypt_asm_decrypt_16 (com_APDU, resp_APDU);
                }
                break;
-            case 0x60:	/* Call AES-encryption */
+            case 0x60:	/* Call PRESENT-encryption */
                if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
                      t1_set_unexpected_parameters( resp_APDU );
                } 
-               else if ( command_verify_APDU_length(     com_APDU, 0x10, 0x10 ) != OK ) {
+               else if ( command_verify_APDU_length(     com_APDU, 0x08, 0x08 ) != OK ) {
                      t1_set_unexpected_length(resp_APDU);
                }
                else {
-                     crypt_aes_encrypt_16 (com_APDU, resp_APDU);
+                     crypt_present_encrypt_8 (com_APDU, resp_APDU);
+               }
+               break;
+            case 0x61:	/* Call PRESENT-encryption */
+               if      ( command_verify_APDU_parameters( com_APDU, 0x00, 0x00 ) != OK ) {
+                     t1_set_unexpected_parameters( resp_APDU );
+               } 
+               else if ( command_verify_APDU_length(     com_APDU, 0x12, 0x08 ) != OK ) {
+                     t1_set_unexpected_length(resp_APDU);
+               }
+               else {
+                     crypt_present_encrypt_8_key (com_APDU, resp_APDU);
                }
                break;
             default:

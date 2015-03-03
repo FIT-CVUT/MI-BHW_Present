@@ -1,4 +1,4 @@
-example_AES.o: ../example_AES.c ../example_AES.h \
+example_PRESENT.o: ../example_PRESENT.c ../example_PRESENT.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/sfr_defs.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/inttypes.h \
@@ -10,7 +10,7 @@ example_AES.o: ../example_AES.c ../example_AES.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/fuse.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/lock.h
 
-../example_AES.h:
+../example_PRESENT.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h:
 

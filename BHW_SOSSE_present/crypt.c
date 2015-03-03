@@ -29,7 +29,7 @@
 #include "types.h"
 #include "example_C.h"
 #include "example_ASM.h"
-#include "example_AES.h"
+#include "example_PRESENT.h"
 
 /**	
  * SECRET KEY 
@@ -77,11 +77,18 @@ void crypt_asm_decrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * res
 	crypt_block_prepare_output(resp_APDU, 16);
 }
 
-void crypt_aes_encrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
+void crypt_present_encrypt_8 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
 {
 	crypt_block_prepare_input(com_APDU);
-	encrypt_aes_16(&input[0], &output[0], &key[0]);
-	crypt_block_prepare_output(resp_APDU, 16);
+	encrypt_present_8( &input[0], &output[0], 0 );
+	crypt_block_prepare_output(resp_APDU, 8);
+}
+
+void crypt_present_encrypt_8_key ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU )
+{
+	crypt_block_prepare_input(com_APDU);
+	encrypt_present_8( &input[0], &output[0], &(input[8]) );
+	crypt_block_prepare_output(resp_APDU, 8);
 }
 
 void crypt_block_prepare_input ( str_command_APDU * com_APDU )

@@ -85,7 +85,7 @@ void crypt_asm_encrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * res
 void crypt_asm_decrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
 
 /** 
- *	@brief Calls the AES-encryption algorithm
+ *	@brief Calls the PRESENT-encryption algorithm
  *	
  *	@param[in]	Pointer to the @a input C-APDU containing the plaintext
  *	@param[out]	Pointer to the @a output R-APDU containing the ciphertext
@@ -93,7 +93,18 @@ void crypt_asm_decrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * res
  *	This method parses the input/output data and calls the AES encryption algorithm.
  *	.
  */
-void crypt_aes_encrypt_16 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
+void crypt_present_encrypt_8 ( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
+
+/** 
+ *	@brief Calls the PRESENT-encryption algorithm with key provided in C-APDU data
+ *	
+ *	@param[in]	Pointer to the @a input C-APDU containing the plaintext
+ *	@param[out]	Pointer to the @a output R-APDU containing the ciphertext
+ *
+ *	This method parses the input/output data and calls the AES encryption algorithm.
+ *	.
+ */
+void crypt_present_encrypt_8_key( str_command_APDU * com_APDU, str_response_APDU * resp_APDU );
 
 /** 
  *	@brief Parses the data from the C-APDU

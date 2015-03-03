@@ -26,15 +26,15 @@
 */
 
 /**
- *  @file 	example_AES.h
+ *  @file 	example_PRESENT.h
  *	@brief 	@a Student implementation of the AES encryption algorithm
  */
 
-#ifndef EXAMPLE_AES_H
-#define EXAMPLE_AES_H
+#ifndef EXAMPLE_PRESENT_H
+#define EXAMPLE_PRESENT_H
 
 /**
- *	@brief	Call of the AES encryption algorithm
+ *	@brief	Call of the PRESENT encryption algorithm
  *
  *	@param[in]	Pointer to the begining of the plaintext
  *	@param[out]	Pointer to the desired @a output ciphertext
@@ -43,7 +43,7 @@
  *	This algoritm must be implemented by the student.
  *
  */
-void encrypt_aes_16(unsigned char *in, unsigned char *out, unsigned char *skey);
+void encrypt_present_8( unsigned char * in, unsigned char * out, unsigned char * klic );
 
 /* ... Add needed prototypes ... */
  

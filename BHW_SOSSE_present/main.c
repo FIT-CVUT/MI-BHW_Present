@@ -52,6 +52,10 @@
  *	-	0x6700	unexpected length of the command or of the expected response
  *	-	0x6e00	class of the command not supported
  *	-	0x6d00	instruction of the command not supported
+ *	-	0x6610	Command APDU is longer then buffer size (LC).
+ *              If you need more data to be sent, check constant INPUT_DATA_SIZE
+ *	-	0x6620	Response is longer then buffer size (LE).
+ *              If you need more data to be sent, check constant INPUT_DATA_SIZE
  *  -   ... see types.h for more
  */
 

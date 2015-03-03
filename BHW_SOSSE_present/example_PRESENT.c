@@ -5,7 +5,20 @@
 	created by Matthias Bruestle and files 	from the Chair for Embedded Security (EMSEC), 
 	Ruhr-University Bochum <http://www.emsec.rub.de/chair/home/>.
 */
-
+/*
+ *	Cipher PRESENT implemented by Vojtech Myslivec <vojtech.myslivec@fit.cvut.cz>
+ *	and Zdenek Novy <novyzde3@fit.cvut.cz> at FIT CVUT v Praze <www.fit.cvut.cz/en>.
+ *	Project live at https://github.com/FIT-CVUT/MI-BHW_Present
+ *
+ *	References
+ *		[1]		A. Bogdanov, C. Paar et al. PRESENT: An Ultra-Lightweight Block Cipher
+ * 				in Cryptographic Hardware and Embedded Systems - CHES 2007
+ * 				(9th International Workshop, Vienna, Austria, September 10-13, 2007. Proceedings).
+ * 				Berlin (Germany): Springer Berlin Heidelberg, 2007.
+ * 				Avaiable at http://link.springer.com/chapter/10.1007%2F978-3-540-74735-2_31
+ * 		[2] 	Dirk Klose. C PRESENT Implementation (8 Bit) in Implementations (lightweightcrypto.org).
+ * 				Avaiable at http://www.lightweightcrypto.org/implementations.php
+ */
 
 #include "example_PRESENT.h"
 #include <avr/io.h>
@@ -29,11 +42,11 @@
 /* sBox je 4-bitovy, nesmi presahnout 0x0F jinak neni chovani definovano */
 static const unsigned char sBox[SBOX_VELIKOST] = { 0x0C, 0x05, 0x06, 0x0B, 0x09, 0x00, 0x0A, 0x0D, 0x03, 0x0E, 0x0F, 0x08, 0x04, 0x07, 0x01, 0x02 };
 /* tajny klic */
-static unsigned char vychoziKlic[KLIC_VELIKOST] = { 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99 };
+static unsigned char vychoziKlic[KLIC_VELIKOST] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
 /* 
+static unsigned char vychoziKlic[KLIC_VELIKOST] = { 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99 };
 static unsigned char vychoziKlic[KLIC_VELIKOST] = { 0x7f, 0xf2, 0x38, 0xa4, 0x45, 0x39, 0x0d, 0x4e, 0x72, 0x3e };
 static unsigned char vychoziKlic[KLIC_VELIKOST] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static unsigned char vychoziKlic[KLIC_VELIKOST] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
 */
 
 void pridejRundovniKlic( unsigned char * zprava, unsigned char * klic ) {
